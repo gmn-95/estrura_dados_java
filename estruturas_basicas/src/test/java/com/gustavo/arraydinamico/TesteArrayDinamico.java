@@ -73,7 +73,7 @@ public class TesteArrayDinamico {
         assertEquals(4, arrayDinamico.getTamanho());
 
         //neste caso, dobra a capacidade
-        assertEquals(6, arrayDinamico.getCapacidadeAtual());
+        assertEquals(4, arrayDinamico.getCapacidadeAtual());
     }
 
     @Test

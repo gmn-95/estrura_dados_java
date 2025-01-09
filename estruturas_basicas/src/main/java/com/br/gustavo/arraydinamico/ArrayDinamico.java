@@ -22,18 +22,15 @@ public class ArrayDinamico<T> {
     }
 
     public boolean add(T o){
-        if(isArrayCapacidadeZerada()){
-            inicializarArray(1);
-        } else if (isCapacidadeMaxima()) {
-            aumentaCapacidadeAutomaticamente();
-        }
-
+        atualizaCapacidadeSeNecessario();
         this.elementos[tamanho++] = o;
         return true;
     }
 
     public void add(int index, T elemento){
-        if(index < 0 || index > this.tamanho - 1) {
+        atualizaCapacidadeSeNecessario();
+
+        if(index < 0 || index > this.tamanho) {
             throw new IndexOutOfBoundsException("Posição inválida");
         }
 
@@ -43,6 +40,14 @@ public class ArrayDinamico<T> {
         this.elementos[index] = elemento;
 
         this.tamanho++;
+    }
+
+    protected void atualizaCapacidadeSeNecessario(){
+        if(isArrayCapacidadeZerada()){
+            inicializarArray(1);
+        } else if (isCapacidadeMaxima()) {
+            aumentaCapacidadeAutomaticamente();
+        }
     }
 
     public T remove(int index){
@@ -105,7 +110,11 @@ public class ArrayDinamico<T> {
     }
 
     protected void aumentaCapacidadeAutomaticamente(){
-        capacidadeAtual *= 2; //dobrar a capacidade;
+        if(capacidadeAtual <= 1){
+            capacidadeAtual *= 2; //dobra o valor só quando é menor igual a 1
+        } else {
+            capacidadeAtual = capacidadeAtual / 2 + capacidadeAtual; //aumenta 50%
+        }
         T[] elementosCopia = (T[]) new Object[capacidadeAtual];
 
         for (int i = 0; i < this.tamanho; i++){
