@@ -5,9 +5,9 @@ import java.util.*;
 @SuppressWarnings("unchecked")
 public class ArrayDinamico<T> {
 
-    private T[] elementos;
-    private int tamanho;
-    private int capacidadeAtual;
+    protected T[] elementos;
+    protected int tamanho;
+    protected int capacidadeAtual;
 
     public ArrayDinamico(){
         inicializarArray(0);
@@ -57,9 +57,11 @@ public class ArrayDinamico<T> {
 
         T valorRemovido = this.getElemento(index);
 
-        for (int i = index; i < this.tamanho; i++){
+        for (int i = index; i < this.tamanho - 1; i++){
             this.elementos[i] = this.elementos[i + 1];
         }
+
+        this.elementos[this.tamanho - 1] = null;
 
         this.tamanho--;
         return valorRemovido;
