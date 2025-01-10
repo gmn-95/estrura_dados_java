@@ -70,7 +70,7 @@ public class ArrayDinamico<T> {
     public boolean remove(T elemento){
 
         for (int i = 0; i < this.tamanho; i++){
-            if(elemento == this.elementos[i]){
+            if(elemento.equals(this.elementos[i])){
                 remove(i);
                 return true;
             }
@@ -79,27 +79,24 @@ public class ArrayDinamico<T> {
         return false;
     }
 
-    public int indexDe(T elemento){
-        for (int i = 0; i < this.tamanho; i++){
-            if(elemento == this.elementos[i]){
+    public int indexDe(T elemento) {
+        for (int i = 0; i < this.tamanho; i++) {
+            if (elemento == this.elementos[i] || (elemento != null && elemento.equals(this.elementos[i]))) {
                 return i;
             }
         }
-
-        return -1;
+        return -1; // Não encontrado
     }
 
-    /**
-     * retorna a Última ocorrencia do valor
-     * */
-    public int ultimoIndexDe(T elemento){
-        for (int i = this.tamanho - 1; i >= 0; i--){
-            if(elemento == this.elementos[i]){
+    public int ultimoIndexDe(T elemento) {
+        for (int i = this.tamanho - 1; i >= 0; i--) {
+            if (elemento == this.elementos[i] || (elemento != null && elemento.equals(this.elementos[i]))) {
                 return i;
             }
         }
-        return -1;
+        return -1; // Não encontrado
     }
+
 
     public void limpar(){
 //        this.elementos = (T[]) new Object[0];
@@ -140,7 +137,7 @@ public class ArrayDinamico<T> {
 
     private boolean verificaSeExisteElemento(Object objetoVerificador){
         for (int i = 0; i < this.tamanho; i++){
-            if (this.elementos[i] == objetoVerificador) return true;
+            if (objetoVerificador == this.elementos[i] || (objetoVerificador != null && objetoVerificador.equals(this.elementos[i]))) return true;
         }
 
         return false;
