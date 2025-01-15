@@ -52,7 +52,7 @@ public class Pilha<T> extends ArrayDinamico<T>{
             s.append(super.elementos[super.tamanho - 1]);
         }
 
-        s.append("]");
+        s.append("]}");
 
         return s.toString();
     }
