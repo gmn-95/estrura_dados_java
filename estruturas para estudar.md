@@ -1,7 +1,7 @@
 # 1. Estruturas Básicas
-- ~Array Dinâmico: Crie uma estrutura semelhante a ArrayList, que expande sua capacidade conforme necessário.~
-- Pilha (Stack): Implemente uma pilha com operações de push, pop e peek. Pode ser baseada em arrays ou listas encadeadas.
-- Fila (Queue): Desenvolva uma fila simples com operações de enfileirar (enqueue) e desenfileirar (dequeue).
+- ~~Array Dinâmico: Crie uma estrutura semelhante a ArrayList, que expande sua capacidade conforme necessário.~~
+- ~~Pilha (Stack): Implemente uma pilha com operações de push, pop e peek. Pode ser baseada em arrays ou listas encadeadas.~~
+- ~~Fila (Queue): Desenvolva uma fila simples com operações de enfileirar (enqueue) e desenfileirar (dequeue).~~
 - Fila Circular: Extensão da fila, onde o final "se conecta" ao início.
 
 # 2. Estruturas Intermediárias
