@@ -1,5 +1,6 @@
 package com.br.gustavo.arraydinamico;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 @SuppressWarnings("unchecked")
@@ -62,9 +63,25 @@ public class ArrayDinamico<T> {
         }
 
         this.elementos[this.tamanho - 1] = null;
-
         this.tamanho--;
+
+        //recriando o array para limpar espaço na memória dos valores removidos
+        this.elementos = (T[]) copyOf(this.elementos, this.tamanho);
+
         return valorRemovido;
+    }
+
+    public static Object[] copyOf(Object[] elementos, int tamanho){
+        if (tamanho < 0) {
+            throw new IllegalArgumentException("O tamanho do array não pode ser negativo");
+        }
+
+        Object[] copia = (Object[]) Array.newInstance(elementos.getClass().getComponentType(), tamanho);
+        int qntdElementosParaCopiar = Math.min(elementos.length, tamanho);
+
+        System.arraycopy(elementos, 0, copia, 0, qntdElementosParaCopiar);
+
+        return copia;
     }
 
     public boolean remove(T elemento){
@@ -169,12 +186,12 @@ public class ArrayDinamico<T> {
         if (this == o) return true;
         if (!(o instanceof ArrayDinamico)) return false;
         ArrayDinamico<?> that = (ArrayDinamico<?>) o;
-        return getTamanho() == that.getTamanho() && getCapacidadeAtual() == that.getCapacidadeAtual() && Objects.deepEquals(elementos, that.elementos);
+        return getTamanho() == that.getTamanho() && Arrays.equals(elementos, that.elementos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Arrays.hashCode(elementos), getTamanho(), getCapacidadeAtual());
+        return Objects.hash(Arrays.hashCode(elementos), getTamanho());
     }
 
     @Override
@@ -191,7 +208,7 @@ public class ArrayDinamico<T> {
             s.append(this.elementos[this.tamanho - 1]);
         }
 
-        s.append("]");
+        s.append("]}");
 
         return s.toString();
     }
