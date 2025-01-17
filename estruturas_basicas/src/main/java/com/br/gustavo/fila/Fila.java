@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
 
 public class Fila<T> extends ArrayDinamico<T> {
 
-    private No<T> primeiro;
-    private No<T> ultimo;
+    protected No<T> primeiro;
+    protected No<T> ultimo;
 
     public Fila(){
         super();
@@ -18,11 +18,9 @@ public class Fila<T> extends ArrayDinamico<T> {
     }
 
     public boolean enqueue(T elemento){
-        if(this.primeiro == null && this.ultimo == null){
-            return adicionaNoInicio(elemento);
-        } else {
-            return adicionaNoFim(elemento);
-        }
+        if (adicionaNaPrimeiraPosicaoSeNecessario(elemento)) return true;
+
+        return adicionaNoFim(elemento);
     }
 
     public T dequeue(){
@@ -47,6 +45,14 @@ public class Fila<T> extends ArrayDinamico<T> {
         return add(elemento);
     }
 
+    protected boolean adicionaNaPrimeiraPosicaoSeNecessario(T elemento){
+        if(this.primeiro == null && this.ultimo == null){
+            return adicionaNoInicio(elemento);
+        }
+
+        return false;
+    }
+
     protected boolean adicionaNoFim(T elemento){
         // caso já existe ao menos um nó, vamos criar um novo nó, onde o atual ultimo nó se tornará o nó anterior, e o
         // novo nó criado passa a apontar para o nó anterior. Esse nó crido, será sempre o último
@@ -69,7 +75,7 @@ public class Fila<T> extends ArrayDinamico<T> {
         return this.ultimo.elemento;
     }
 
-    private static class No<T>{
+    protected static class No<T>{
         T elemento;
         No<T> noAnterior;
         No<T> proximoNo;
