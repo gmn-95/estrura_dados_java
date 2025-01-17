@@ -2,12 +2,12 @@
 - ~~Array Dinâmico: Crie uma estrutura semelhante a ArrayList, que expande sua capacidade conforme necessário.~~
 - ~~Pilha (Stack): Implemente uma pilha com operações de push, pop e peek. Pode ser baseada em arrays ou listas encadeadas.~~
 - ~~Fila (Queue): Desenvolva uma fila simples com operações de enfileirar (enqueue) e desenfileirar (dequeue).~~
-- Fila Circular: Extensão da fila, onde o final "se conecta" ao início.
+- ~~Fila Circular: Extensão da fila, onde o final "se conecta" ao início.~~
+- ~~Deque (Double-Ended Queue): Implementação de uma fila onde elementos podem ser adicionados/removidos de ambos os lados.~~
 
 # 2. Estruturas Intermediárias
 - Lista Encadeada (Singly Linked List): Cada nó contém um valor e uma referência ao próximo nó.
 - Lista Duplamente Encadeada (Doubly Linked List): Cada nó contém referências para o próximo e o anterior.
-- Deque (Double-Ended Queue): Implementação de uma fila onde elementos podem ser adicionados/removidos de ambos os lados.
 - Hash Table (Tabela Hash): Crie uma estrutura de mapeamento chave-valor, implementando sua própria função de hash e tratamento de colisões (e.g., encadeamento ou sondagem linear).
 
 # 3. Estruturas Avançadas

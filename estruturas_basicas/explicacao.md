@@ -11,7 +11,7 @@ Além disso, os arrays dinâmicos oferecem algumas vantagens adicionais:
 - Crescimento Amortizado: Embora a inserção de um novo elemento possa, ocasionalmente, requerer a cópia de todos os elementos
 para um novo array maior, a média de tempo por operação de inserção é constante.
 
-- Memória Contígua: Como os arrays dinâmicos armazenam dados em blocos contíguos de memória, o acesso aos elementos é muito 
+- Memória Contínua: Como os arrays dinâmicos armazenam dados em blocos contínuos de memória, o acesso aos elementos é muito 
 rápido (tempo constante).
 
 - Flexibilidade: É possível redimensionar o array conforme necessário, permitindo a alocação de memória eficiente e a capacidade 
@@ -43,3 +43,30 @@ Exemplos de usos:
 - Filas de requisições
 - Sistemas de atendimentos
 - Processamentos de dados em lotes
+
+## 4 - Fila circular
+A Fila circular é uma variação da fila comum, onde os elementos são armazenados em forma de circulo, onde o último elemento
+está diretamente conectado ao primeiro. Isso permite um uso mais eficiente de memória, pois elimina espaços não utilizados
+quando elementos são removidos da fila.
+
+Benefícios:
+- Evita desperdício de espaço em aplicações onde o tamanho máximo da fila é conhecido.
+- Fácil de implementar e eficiente para uso de memória.
+
+Desvantagens:
+- Limitação de capacidade (não cresce automaticamente).
+- Pode ser menos eficiente do que filas baseadas em listas encadeadas para tamanhos dinâmicos.
+
+## 5 - Deque
+Deque (Double-Ended Queue) é uma estrutura de dados que permite inserções e remoções de elementos em ambas extremidades:
+início e fim. Pode ser visto como uma generalização de uma fila ou pilha, mas a flexibilidade de operar em ambas as 
+extremidades.
+
+Vantagens:
+- Flexibilidade: Combina as propriedades de pilhas e filas.
+- Desempenho eficiente: Inserções e remoções nas extremidades são geralmente 𝑂(1).
+- Problemas que requerem acesso a ambas as extremidades de forma eficiente.
+
+Desvantagens:
+- Uso de memória
+- Não permite acesso direto a elementos intermediários (não é como um array).
